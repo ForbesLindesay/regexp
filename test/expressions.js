@@ -112,5 +112,16 @@ module.exports = [
         }]
       }
     ]
+  }],
+  [/\u1Af/, {
+    type: 'match',
+    offset: 0,
+    text: '\\u1Af',
+    body: [{
+      type: 'unicode',
+      offset: 0,
+      text: '\\u1Af',
+      code: '1AF'
+    }]
   }]
 ]

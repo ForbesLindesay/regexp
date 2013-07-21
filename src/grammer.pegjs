@@ -67,6 +67,6 @@ controlCharacter = "\\c" code:(.) { return new Token('control-character') }
 backReference = "\\" [1-9] { return new Token('back-reference') }
 octalCharacter = "\\0" code:([0-7]+) { return new Token('octal-character') }
 hexCharacter = "\\x" code:([0-9a-fA-F]+) { return new Token('hex-character') }
-unicodeCharacter = "\\u" code:([0-9a-fA-F]+) { return new Token('unicode-character') }
+unicodeCharacter = "\\u" code:([0-9a-fA-F]+) { return new Unicode(code.join('')) }
 nullCharacter = "\\0" { return new Token('null-character') }
 otherEscaped = "\\" value:. { return new Literal(value) }

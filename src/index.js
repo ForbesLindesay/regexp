@@ -100,3 +100,11 @@ function Literal(body) {
 }
 Literal.prototype = Object.create(Token.prototype)
 Literal.prototype.constructor = Literal
+
+exports.Unicode = Unicode
+function Unicode(code) {
+  Token.call(this, 'unicode')
+  this.code = code.toUpperCase()
+}
+Unicode.prototype = Object.create(Token.prototype)
+Unicode.prototype.constructor = Unicode
