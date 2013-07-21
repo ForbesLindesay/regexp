@@ -1,0 +1,22 @@
+{
+  "name": "regexp",
+  "version": "0.0.0",
+  "description": "Regex Parser",
+  "keywords": [],
+  "dependencies": {},
+  "devDependencies": {
+    "uglify-js": "~2.3.6",
+    "pegjs": "https://github.com/dmajda/pegjs/archive/798ed6a8a4fbfc36b312ba09d428a5832808d9d6.tar.gz",
+    "bash-color": "0.0.3"
+  },
+  "scripts": {
+    "test": "node test/index.js",
+    "prepublish": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ForbesLindesay/regexp.git"
+  },
+  "author": "ForbesLindesay",
+  "license": "MIT"
+}
