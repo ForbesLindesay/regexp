@@ -108,3 +108,35 @@ function Unicode(code) {
 }
 Unicode.prototype = Object.create(Token.prototype)
 Unicode.prototype.constructor = Unicode
+
+exports.Hex = Hex
+function Hex(code) {
+  Token.call(this, 'hex')
+  this.code = code.toUpperCase()
+}
+Hex.prototype = Object.create(Token.prototype)
+Hex.prototype.constructor = Hex
+
+exports.Octal = Octal
+function Octal(code) {
+  Token.call(this, 'octal')
+  this.code = code.toUpperCase()
+}
+Octal.prototype = Object.create(Token.prototype)
+Octal.prototype.constructor = Octal
+
+exports.BackReference = BackReference
+function BackReference(code) {
+  Token.call(this, 'back-reference')
+  this.code = code.toUpperCase()
+}
+BackReference.prototype = Object.create(Token.prototype)
+BackReference.prototype.constructor = BackReference
+
+exports.ControlCharacter = ControlCharacter
+function ControlCharacter(code) {
+  Token.call(this, 'control')
+  this.code = code.toUpperCase()
+}
+ControlCharacter.prototype = Object.create(Token.prototype)
+ControlCharacter.prototype.constructor = ControlCharacter

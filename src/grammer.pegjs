@@ -63,10 +63,12 @@ tabCharacter = "\\t" { return new Token('tab') }
 verticalTabCharacter = "\\v" { return new Token('vertical-tab') }
 wordCharacter = "\\w" { return new Token('word') }
 nonWordCharacter = "\\W" { return new Token('non-word') }
-controlCharacter = "\\c" code:(.) { return new Token('control-character') }
-backReference = "\\" [1-9] { return new Token('back-reference') }
-octalCharacter = "\\0" code:([0-7]+) { return new Token('octal-character') }
-hexCharacter = "\\x" code:([0-9a-fA-F]+) { return new Token('hex-character') }
+
+controlCharacter = "\\c" code:(.) { return new Control('control-character') }
+backReference = "\\" code:[1-9] { return new BackReference(code) }
+octalCharacter = "\\0" code:([0-7]+) { return new Octal(code.join('')) }
+hexCharacter = "\\x" code:([0-9a-fA-F]+) { return new Hex(code.join('')) }
 unicodeCharacter = "\\u" code:([0-9a-fA-F]+) { return new Unicode(code.join('')) }
+
 nullCharacter = "\\0" { return new Token('null-character') }
 otherEscaped = "\\" value:. { return new Literal(value) }
