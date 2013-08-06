@@ -214,5 +214,64 @@ module.exports = [
          offset: 14,
          text: 'n',
          body: 'n',
-         escaped: false } ] }]
+         escaped: false } ] }],
+  [/(a)(b)(?:c)(d)/, { type: 'match',
+    offset: 0,
+    text: '(a)(b)(?:c)(d)',
+    body:
+     [ { type: 'capture-group',
+         offset: 1,
+         text: 'a',
+         body:
+          { type: 'match',
+            offset: 1,
+            text: 'a',
+            body:
+             [ { type: 'literal',
+                 offset: 1,
+                 text: 'a',
+                 body: 'a',
+                 escaped: false } ] },
+         index: 1 },
+       { type: 'capture-group',
+         offset: 4,
+         text: 'b',
+         body:
+          { type: 'match',
+            offset: 4,
+            text: 'b',
+            body:
+             [ { type: 'literal',
+                 offset: 4,
+                 text: 'b',
+                 body: 'b',
+                 escaped: false } ] },
+         index: 2 },
+       { type: 'non-capture-group',
+         offset: 7,
+         text: '?:c',
+         body:
+          { type: 'match',
+            offset: 9,
+            text: 'c',
+            body:
+             [ { type: 'literal',
+                 offset: 9,
+                 text: 'c',
+                 body: 'c',
+                 escaped: false } ] } },
+       { type: 'capture-group',
+         offset: 12,
+         text: 'd',
+         body:
+          { type: 'match',
+            offset: 12,
+            text: 'd',
+            body:
+             [ { type: 'literal',
+                 offset: 12,
+                 text: 'd',
+                 body: 'd',
+                 escaped: false } ] },
+         index: 3 } ] }]
 ]

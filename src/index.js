@@ -1,6 +1,7 @@
 var parser = import './grammer.pegjs'
 
 var index = 1
+var cgs = {}
 exports = (module.exports = parse)
 
 function parse(str) {
@@ -10,6 +11,7 @@ function parse(str) {
   }
   //capture group index
   index = 1
+  cgs = {}
   return parser.parse(str)
 }
 
@@ -46,9 +48,11 @@ Group.prototype = Object.create(Token.prototype)
 Group.prototype.constructor = Group
 
 exports.CaptureGroup = CaptureGroup
-function CaptureGroup(index, body) {
+function CaptureGroup(body) {
   Group.call(this, 'capture-group')
-  this.index = index
+
+  // a bug means this gets called multiple times so memoize based on the offset
+  this.index = cgs[this.offset] || (cgs[this.offset] = index++)
   this.body = body
 }
 CaptureGroup.prototype = Object.create(Group.prototype)
