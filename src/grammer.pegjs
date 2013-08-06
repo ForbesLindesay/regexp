@@ -45,7 +45,7 @@ terminal = anyCharacter / escapedCharacter / literal
 
 anyCharacter = "." { return new Token('any-character') }
 
-literal "Literal" = value:[^|\\/.\[\(\) ?+*$^] { return new Literal(value) }
+literal "Literal" = value:[^|\\/.\[\(\)\?\+\*\$\^] { return new Literal(value) }
 
 escapedCharacter = word_boundaryCharacter /  nonWord_boundaryCharacter /  controlCharacter /  digitCharacter /  non_digitCharacter /  formFeedCharacter /  lineFeedCharacter /  carriageReturnCharacter /  whiteSpaceCharacter /  nonWhiteSpaceCharacter /  tabCharacter /  verticalTabCharacter /  wordCharacter /  nonWordCharacter /  backReference /  octalCharacter /  hexCharacter /  unicodeCharacter /  nullCharacter / otherEscaped
 
