@@ -38,7 +38,7 @@ negativeLookahead = "?!" regexp:regexp   { return new Group('negative-lookahead'
 charset "CharacterSet" = "[" invert:"^"? body:(charsetRange / charsetTerminal)* "]" { return new CharSet(!!invert, body) }
 charsetRange "CharacterRange" = start:charsetTerminal "-" end:charsetTerminal { return new CharacterRange(start, end) }
 charsetTerminal "Character" = charsetEscapedCharacter / charsetLiteral
-charsetLiteral = [^\\\]]
+charsetLiteral = value:[^\\\]] { return new Literal(value) }
 charsetEscapedCharacter = backspaceCharacter / controlCharacter / digitCharacter / non_digitCharacter / formFeedCharacter / lineFeedCharacter / carriageReturnCharacter / whiteSpaceCharacter / nonWhiteSpaceCharacter / tabCharacter / verticalTabCharacter / wordCharacter / nonWordCharacter / octalCharacter / hexCharacter / unicodeCharacter / nullCharacter / otherEscaped
 
 terminal = anyCharacter / escapedCharacter / literal

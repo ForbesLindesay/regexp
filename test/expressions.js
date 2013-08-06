@@ -17,8 +17,20 @@ module.exports = [
             type: 'range',
             offset: 1,
             text: 'a-z',
-            start: 'a',
-            end: 'z'
+            start: {
+              type: 'literal',
+              offset: 1,
+              text: 'a',
+              body: 'a',
+              escaped: false
+            },
+            end: {
+              type: 'literal',
+              offset: 3,
+              text: 'z',
+              body: 'z',
+              escaped: false
+            }
           }]
         },
         quantifier: {
