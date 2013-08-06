@@ -273,5 +273,16 @@ module.exports = [
                  text: 'd',
                  body: 'd',
                  escaped: false } ] },
-         index: 3 } ] }]
+         index: 3 } ] }],
+  [/\cm/, {
+    type: 'match',
+    offset: 0,
+    text: '\\cm',
+    body: [{
+      type: 'control-character',
+      offset: 0,
+      text: '\\cm',
+      code: 'M'
+    }]
+  }]
 ]

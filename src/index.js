@@ -139,7 +139,7 @@ BackReference.prototype.constructor = BackReference
 
 exports.ControlCharacter = ControlCharacter
 function ControlCharacter(code) {
-  Token.call(this, 'control')
+  Token.call(this, 'control-character')
   this.code = code.toUpperCase()
 }
 ControlCharacter.prototype = Object.create(Token.prototype)

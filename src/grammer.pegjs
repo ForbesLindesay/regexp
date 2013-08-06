@@ -64,7 +64,7 @@ verticalTabCharacter = "\\v" { return new Token('vertical-tab') }
 wordCharacter = "\\w" { return new Token('word') }
 nonWordCharacter = "\\W" { return new Token('non-word') }
 
-controlCharacter = "\\c" code:(.) { return new Control('control-character') }
+controlCharacter = "\\c" code:. { return new ControlCharacter(code) }
 backReference = "\\" code:[1-9] { return new BackReference(code) }
 octalCharacter = "\\0" code:([0-7]+) { return new Octal(code.join('')) }
 hexCharacter = "\\x" code:([0-9a-fA-F]+) { return new Hex(code.join('')) }
