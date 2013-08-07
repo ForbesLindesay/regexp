@@ -14,9 +14,8 @@ end         = "$" { return new Token('end') }
 quantified  = submatch:submatch quantifier:quantifier { return new Quantified(submatch, quantifier)}
 quantifier "Quantifier" = quantity:quantifierSpec notgreedy:greedyFlag? { if (notgreedy) { quantity.greedy = false } return quantity }
 
-quantifierSpec  = quantifierSpecFull / quantifierSpecUpTo / quantifierSpecAtLeast / quantifierSpecExact / quantifierRequired / quantifierAny / quantifierOptional
+quantifierSpec  = quantifierSpecFull / quantifierSpecAtLeast / quantifierSpecExact / quantifierRequired / quantifierAny / quantifierOptional
 quantifierSpecFull    = "{" min:integer "," max:integer "}" { return new Quantifier(min, max)}
-quantifierSpecUpTo    = "{," max:integer "}"                { return new Quantifier(0, max)}
 quantifierSpecAtLeast = "{" min:integer ",}"                { return new Quantifier(min, Infinity)}
 quantifierSpecExact   = "{" value:integer "}"               { return new Quantifier(value, value)}
 quantifierRequired    = "+"                                 { return new Quantifier(1, Infinity)}
