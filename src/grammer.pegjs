@@ -27,12 +27,18 @@ greedyFlag      = "?"
 integer = num:([0-9]+) { return +num.join('') }
 
 
-subexp = "(" body:(positiveLookahead / negativeLookahead / groupNoCapture / groupCapture) ")" { return body}
+subexp = "(" body:(positiveLookback / negativeLookback / logicNesting / positiveLookahead / negativeLookahead / namedGroup / groupNoCapture / groupCapture) ")" { return body}
 groupCapture      =      regexp:regexp   { return new CaptureGroup(regexp) }
 groupNoCapture    = "?:" regexp:regexp   { return new Group('non-capture-group', regexp) }
 positiveLookahead = "?=" regexp:regexp   { return new Group('positive-lookahead', regexp) }
 negativeLookahead = "?!" regexp:regexp   { return new Group('negative-lookahead', regexp) }
+positiveLookback  = "?<=" regexp:regexp  { return new Group('positive-lookback', regexp) }
+negativeLookback  = "?<!" regexp:regexp  { return new Group('negative-lookback', regexp) }
+logicNesting      = "?R" regexp:regexp   { return new Group('logic-nesting', regexp) }
+namedGroup        = "?<" name:(name) ">" regexp:regexp   { return new Group('named-group', regexp, name) }
 
+name "name"
+  = names:[a-zA-Z0-9_]+ { return names.join('')}
 
 charset "CharacterSet" = "[" invert:"^"? body:(charsetRange / charsetTerminal)* "]" { return new CharSet(!!invert, body) }
 charsetRange "CharacterRange" = start:charsetTerminal "-" end:charsetTerminal { return new CharacterRange(start, end) }
