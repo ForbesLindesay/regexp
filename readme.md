@@ -3,8 +3,8 @@
 Regex parser based on descriptions in http://www.javascriptkit.com/javatutors/redev2.shtml
 
 [![Build Status](https://img.shields.io/travis/ForbesLindesay/regexp/master.svg)](https://travis-ci.org/ForbesLindesay/regexp)
-[![Dependency Status](https://img.shields.io/gemnasium/ForbesLindesay/regexp.svg)](https://gemnasium.com/ForbesLindesay/regexp)
-[![NPM version](https://img.shields.io/npm/v/regexp.svg)](http://badge.fury.io/js/regexp)
+[![Dependency Status](https://img.shields.io/david/ForbesLindesay/regexp.svg)](https://david-dm.org/ForbesLindesay/regexp)
+[![NPM version](https://img.shields.io/npm/v/regexp.svg)](https://www.npmjs.com/package/regexp)
 
 ## Installation
 
