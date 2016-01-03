@@ -40,9 +40,12 @@ Match.prototype = Object.create(Token.prototype)
 Match.prototype.constructor = Match
 
 exports.Group = Group
-function Group(type, body) {
+function Group(type, body, name) {
   Token.call(this, type)
   this.body = body
+  if (name) {
+    this.name = name;
+  }
 }
 Group.prototype = Object.create(Token.prototype)
 Group.prototype.constructor = Group
