@@ -5,9 +5,9 @@
   "keywords": [],
   "dependencies": {},
   "devDependencies": {
-    "uglify-js": "~2.3.6",
+    "uglify-js": "~2.7.5",
     "pegjs": "https://github.com/dmajda/pegjs/archive/791034fad92c9cd7a9d1c71187df03441bbfd521.tar.gz",
-    "bash-color": "0.0.3"
+    "bash-color": "0.0.4"
   },
   "scripts": {
     "test": "node test/index.js",
