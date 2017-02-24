@@ -1,5 +1,7 @@
 # regexp
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ForbesLindesay/regexp.svg)](https://greenkeeper.io/)
+
 Regex parser based on descriptions in http://www.javascriptkit.com/javatutors/redev2.shtml
 
 [![Build Status](https://img.shields.io/travis/ForbesLindesay/regexp/master.svg)](https://travis-ci.org/ForbesLindesay/regexp)
